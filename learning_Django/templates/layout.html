@@ -1,0 +1,24 @@
+
+{% load static %}
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}
+        My Biryani Website
+        {% endblock %}</title>
+    <link rel="stylesheet" href="{% static "style.css" %}">
+    {% tailwind_css %}
+</head>
+<body class="bg-blue-900">
+    <nav class="bg-red-300 p-4 text-black
+    text-1.5xl font-bold">
+        This is our navigation bar
+    </nav>
+    {% block content  %}
+
+    {% endblock %}
+</body>
+</html>

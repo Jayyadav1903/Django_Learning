@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<form method="POST" class="p-4 bg-gray-100 rounded-lg">
+    {% csrf_token %}
+    {{form.as_p}} 
+    <button type="submit" class="btn btn-primary bg-yellow-400 rounded-lg font-bold m-4 p-4">Submit</button>  
+</form>
+{% if stores %}
+    <h2>Stores Available for Selected Biryani</h2>
+    <ul>
+        <div ></div>
+        {% for store in stores %}
+
+        <li>{{ store.name }} - {{store.location}}</li>
+        
+        {% endfor %}
+      
+    </ul>
+{% endif %}
+    {% endblock %}

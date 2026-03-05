@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    All Biryani
+{% endblock %}
+
+{% block content %}
+    <div class="m-4 p-4 bg-red-300 rounded-lg">
+    <h1 class="text-3xl font-bold ">All Biryani</h1>
+    </div>
+<div class="grid grid-cols-3 gap-4 m-4">
+
+{% for biryani in biryani_list %}
+<div class="bg-red-300 p-5 rounded-lg biryani-card">
+    <img class="rounded-lg shadows-lg" src="{{biryani.image.url}}" alt="{{biryani.name}}" class="biryani-image">
+    <h1 class="bg-yellow-400 rounded-lg ">Price: Rs.200</h1>
+    <h3 class="text-2xl font-bold">{{biryani.name}}</h3>
+    <a href="{% url 'biryani_detail' biryani.id %}">
+        <button 
+        type="button"
+        class="bg-yellow-500 text-white px-4 py-2 rounded-lg mt-2 hover:bg-green-600">
+            {{biryani.types}}-{{biryani.id}}
+        </button>
+    </a>
+</div>
+
+
+{% endfor %}
+</div>
+{% endblock %}  
+
